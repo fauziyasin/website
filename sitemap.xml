@@ -16,6 +16,31 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.tronix.io/misc/mplabx/customize/</loc>
+         <lastmod>2022-04-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.tronix.io/misc/mplabx/hello/</loc>
+         <lastmod>2022-04-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.tronix.io/misc/mplabx/programmers/</loc>
+         <lastmod>2022-04-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.tronix.io/misc/mplabx/project/</loc>
+         <lastmod>2022-04-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.tronix.io/misc/mplabx/simulator/</loc>
+         <lastmod>2022-04-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.tronix.io/pic-16bit/</loc>
          <lastmod>2022-04-08</lastmod>
          <changefreq>daily</changefreq>
