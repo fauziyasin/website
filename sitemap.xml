@@ -16,42 +16,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.tronix.io/pic-16bit/micro/</loc>
+         <loc>https://www.tronix.io/pic-16bit/</loc>
          <lastmod>2022-04-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.tronix.io/pic-16bit/mini/</loc>
-         <lastmod>2022-04-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.tronix.io/pic-16bit/nano/</loc>
-         <lastmod>2022-04-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.tronix.io/pic-16bit/trainer/</loc>
-         <lastmod>2022-04-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.tronix.io/pic-8bit/micro/</loc>
-         <lastmod>2022-04-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.tronix.io/pic-8bit/mini/</loc>
-         <lastmod>2022-04-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.tronix.io/pic-8bit/nano/</loc>
-         <lastmod>2022-04-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.tronix.io/pic-8bit/trainer/</loc>
+         <loc>https://www.tronix.io/pic-8bit/</loc>
          <lastmod>2022-04-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
