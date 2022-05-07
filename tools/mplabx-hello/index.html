@@ -252,6 +252,22 @@
         
   
   
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tips/" class="md-tabs__link">
+        TIPS
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
     
   
 
@@ -652,6 +668,70 @@
 
   
   
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../tips/">TIPS</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="TIPS" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          TIPS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tips/pagesel/" class="md-nav__link">
+        PICAS Pagesel
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -659,7 +739,7 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
       
       
       
@@ -687,14 +767,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../">Tools</a>
           
-            <label for="__nav_5">
+            <label for="__nav_6">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
       <nav class="md-nav" aria-label="Tools" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
+        <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Tools
         </label>
@@ -724,6 +804,20 @@
     <li class="md-nav__item">
       <a href="../mplabx-customize/" class="md-nav__link">
         MPLABX Customize
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mplabx-project/" class="md-nav__link">
+        MPLABX Create Project
       </a>
     </li>
   
@@ -787,20 +881,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../mplabx-project/" class="md-nav__link">
-        MPLABX Create Project
-      </a>
     </li>
   
 
@@ -902,9 +982,8 @@
 <span class="cp">#pragma config WRT=OFF, PLLEN=OFF, STVREN=ON, BORV=LO, LVP=ON</span>
 
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;xc.h&gt;</span><span class="cp"></span>
-<span class="c1">// PIC12F1822 - Compile with XC8(v2.31).</span>
+<span class="c1">// PIC12F1822 - Compile with XC8(v2.36).</span>
 <span class="c1">// PIC12F1822 - @8MHz Internal Oscillator.</span>
-<span class="c1">// v0.1 - 11/2020.</span>
 
 <span class="c1">// Clock OUT Enable.</span>
 
@@ -958,12 +1037,12 @@
 <span class="nf">CONFIG</span><span class="w"> </span><span class="no">LVP</span><span class="err">=</span><span class="no">ON</span><span class="w"></span>
 
 <span class="c1">#include &lt;xc.inc&gt;</span>
-<span class="c1">; PIC12F1822 - Compile with PIC-AS(v2.31).</span>
+<span class="c1">; PIC12F1822 - Compile with PIC-AS(v2.36).</span>
 <span class="c1">; PIC12F1822 - @8MHz Internal Oscillator.</span>
 
-<span class="c1">// Clock OUT Enable.</span>
+<span class="c1">; Clock OUT Enable.</span>
 
-<span class="c1">// MCU.RA4 -&gt; OSCILLOSCOPE.PROBE.A.</span>
+<span class="c1">; MCU.RA4 -&gt; OSCILLOSCOPE.PROBE.A.</span>
 
 <span class="c1">; Reset Vector.</span>
 <span class="nf">PSECT</span><span class="w"> </span><span class="no">reset_vec</span><span class="p">,</span><span class="no">class</span><span class="err">=</span><span class="no">CODE</span><span class="p">,</span><span class="no">space</span><span class="err">=</span><span class="mi">0</span><span class="p">,</span><span class="no">delta</span><span class="err">=</span><span class="mi">2</span><span class="w"></span>
@@ -1059,7 +1138,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../mplabx-customize/" class="md-footer__link md-footer__link--prev" aria-label="Previous: MPLABX Customize" rel="prev">
+        <a href="../mplabx-project/" class="md-footer__link md-footer__link--prev" aria-label="Previous: MPLABX Create Project" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1068,20 +1147,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              MPLABX Customize
+              MPLABX Create Project
             </div>
           </div>
         </a>
       
       
         
-        <a href="../mplabx-project/" class="md-footer__link md-footer__link--next" aria-label="Next: MPLABX Create Project" rel="next">
+        <a href="../mplabx-simulator/" class="md-footer__link md-footer__link--next" aria-label="Next: MPLABX Simulator" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              MPLABX Create Project
+              MPLABX Simulator
             </div>
           </div>
           <div class="md-footer__button md-icon">
