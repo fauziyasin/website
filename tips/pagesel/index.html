@@ -965,12 +965,6 @@
 <ul>
 <li>MAIN (PAGE0) - TEXT1 (PAGE1) - TEXT2 (PAGE2).</li>
 </ul>
-<div class="highlight"><pre><span></span><code>
-</code></pre></div>
-<ul>
-<li>MAIN (PAGE0) - TEXT1 (PAGE1).</li>
-<li>MAIN (PAGE0) - TEXT2 (PAGE2).</li>
-</ul>
 <div class="highlight"><pre><span></span><code><span class="o">;</span><span class="w"> </span><span class="nx">Configuration</span><span class="w"> </span><span class="nx">Registers</span><span class="p">.</span><span class="w"></span>
 <span class="nx">CONFIG</span><span class="w"> </span><span class="nx">FOSC</span><span class="o">=</span><span class="nx">INTOSC</span><span class="w"></span>
 <span class="nx">CONFIG</span><span class="w"> </span><span class="nx">WDTE</span><span class="o">=</span><span class="nx">OFF</span><span class="w"></span>
@@ -996,8 +990,7 @@
 <span class="o">;</span><span class="w"> </span><span class="o">-</span><span class="nx">preset_vec</span><span class="o">=</span><span class="mi">0000</span><span class="nx">h</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="nx">pcinit</span><span class="o">=</span><span class="mi">0005</span><span class="nx">h</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="nx">ptext1</span><span class="o">=</span><span class="mi">0800</span><span class="nx">h</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="nx">ptext2</span><span class="o">=</span><span class="mi">1000</span><span class="nx">h</span><span class="p">.</span><span class="w"></span>
 <span class="o">;</span><span class="w"> </span><span class="nx">Instruction</span><span class="w"> </span><span class="o">~</span><span class="mi">500</span><span class="nx">ns</span><span class="w"> </span><span class="err">@</span><span class="mi">8</span><span class="nx">MHz</span><span class="p">.</span><span class="w"></span>
 
-<span class="o">;</span><span class="w"> </span><span class="nx">MAIN</span><span class="p">(</span><span class="nx">PAGE0</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">TEXT1</span><span class="p">(</span><span class="nx">PAGE1</span><span class="p">).</span><span class="w"></span>
-<span class="o">;</span><span class="w"> </span><span class="nx">MAIN</span><span class="p">(</span><span class="nx">PAGE0</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">TEXT2</span><span class="p">(</span><span class="nx">PAGE2</span><span class="p">).</span><span class="w"></span>
+<span class="o">;</span><span class="w"> </span><span class="nx">MAIN</span><span class="w"> </span><span class="p">(</span><span class="nx">PAGE0</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">TEXT1</span><span class="w"> </span><span class="p">(</span><span class="nx">PAGE1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">TEXT2</span><span class="w"> </span><span class="p">(</span><span class="nx">PAGE2</span><span class="p">).</span><span class="w"></span>
 
 <span class="o">;</span><span class="w"> </span><span class="nx">MCU</span><span class="w"> </span><span class="nx">Definitions</span><span class="p">.</span><span class="w"></span>
 <span class="o">;</span><span class="w"> </span><span class="nx">BANKS</span><span class="p">.</span><span class="w"></span>
@@ -1144,6 +1137,194 @@
 <span class="nx">PSECT</span><span class="w"> </span><span class="nx">text1</span><span class="o">,</span><span class="kd">class</span><span class="o">=</span><span class="nx">CODE</span><span class="o">,</span><span class="nx">space</span><span class="o">=</span><span class="mi">0</span><span class="o">,</span><span class="nx">delta</span><span class="o">=</span><span class="mi">2</span><span class="w"></span>
 <span class="nx">_page1</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="nx">BSF</span><span class="w">     </span><span class="nx">LATA</span><span class="o">,</span><span class="w"> </span><span class="mi">0</span><span class="nx">X0</span><span class="w"></span>
+<span class="w">    </span><span class="nx">RETURN</span><span class="w"></span>
+
+<span class="o">;</span><span class="w"> </span><span class="nx">Page2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1000</span><span class="nx">h</span><span class="o">-</span><span class="mi">17</span><span class="nx">FFh</span><span class="p">.</span><span class="w"></span>
+<span class="nx">PSECT</span><span class="w"> </span><span class="nx">text2</span><span class="o">,</span><span class="kd">class</span><span class="o">=</span><span class="nx">CODE</span><span class="o">,</span><span class="nx">space</span><span class="o">=</span><span class="mi">0</span><span class="o">,</span><span class="nx">delta</span><span class="o">=</span><span class="mi">2</span><span class="w"></span>
+<span class="nx">_page2</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="nx">BCF</span><span class="w">     </span><span class="nx">LATA</span><span class="o">,</span><span class="w"> </span><span class="mi">0</span><span class="nx">X0</span><span class="w"></span>
+<span class="w">    </span><span class="nx">RETURN</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">END</span><span class="w">     </span><span class="nx">resetVector</span><span class="w"></span>
+</code></pre></div>
+<p><img alt="" src="https://www.tronix.io/pics/pagesel0.png" /></p>
+<ul>
+<li>MAIN (PAGE0) - TEXT1 (PAGE1).</li>
+<li>MAIN (PAGE0) - TEXT2 (PAGE2).</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="o">;</span><span class="w"> </span><span class="nx">Configuration</span><span class="w"> </span><span class="nx">Registers</span><span class="p">.</span><span class="w"></span>
+<span class="nx">CONFIG</span><span class="w"> </span><span class="nx">FOSC</span><span class="o">=</span><span class="nx">INTOSC</span><span class="w"></span>
+<span class="nx">CONFIG</span><span class="w"> </span><span class="nx">WDTE</span><span class="o">=</span><span class="nx">OFF</span><span class="w"></span>
+<span class="nx">CONFIG</span><span class="w"> </span><span class="nx">PWRTE</span><span class="o">=</span><span class="nx">OFF</span><span class="w"></span>
+<span class="nx">CONFIG</span><span class="w"> </span><span class="nx">MCLRE</span><span class="o">=</span><span class="nx">ON</span><span class="w"></span>
+<span class="nx">CONFIG</span><span class="w"> </span><span class="nx">CP</span><span class="o">=</span><span class="nx">OFF</span><span class="w"></span>
+<span class="nx">CONFIG</span><span class="w"> </span><span class="nx">BOREN</span><span class="o">=</span><span class="nx">OFF</span><span class="w"></span>
+<span class="nx">CONFIG</span><span class="w"> </span><span class="nx">CLKOUTEN</span><span class="o">=</span><span class="nx">OFF</span><span class="w"></span>
+<span class="nx">CONFIG</span><span class="w"> </span><span class="nx">IESO</span><span class="o">=</span><span class="nx">OFF</span><span class="w"></span>
+<span class="nx">CONFIG</span><span class="w"> </span><span class="nx">FCMEN</span><span class="o">=</span><span class="nx">OFF</span><span class="w"></span>
+<span class="nx">CONFIG</span><span class="w"> </span><span class="nx">WRT</span><span class="o">=</span><span class="nx">OFF</span><span class="w"></span>
+<span class="nx">CONFIG</span><span class="w"> </span><span class="nx">PPS1WAY</span><span class="o">=</span><span class="nx">ON</span><span class="w"></span>
+<span class="nx">CONFIG</span><span class="w"> </span><span class="nx">ZCD</span><span class="o">=</span><span class="nx">OFF</span><span class="w"></span>
+<span class="nx">CONFIG</span><span class="w"> </span><span class="nx">PLLEN</span><span class="o">=</span><span class="nx">OFF</span><span class="w"></span>
+<span class="nx">CONFIG</span><span class="w"> </span><span class="nx">STVREN</span><span class="o">=</span><span class="nx">ON</span><span class="w"></span>
+<span class="nx">CONFIG</span><span class="w"> </span><span class="nx">BORV</span><span class="o">=</span><span class="nx">LO</span><span class="w"></span>
+<span class="nx">CONFIG</span><span class="w"> </span><span class="nx">LPBOR</span><span class="o">=</span><span class="nx">OFF</span><span class="w"></span>
+<span class="nx">CONFIG</span><span class="w"> </span><span class="nx">LVP</span><span class="o">=</span><span class="nx">ON</span><span class="w"></span>
+
+<span class="err">#</span><span class="nx">include</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">xc</span><span class="p">.</span><span class="nx">inc</span><span class="o">&gt;</span><span class="w"></span>
+<span class="o">;</span><span class="w"> </span><span class="nx">PIC16F1778</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">Compile</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="nx">PIC</span><span class="o">-</span><span class="nx">AS</span><span class="p">(</span><span class="nx">v2</span><span class="p">.</span><span class="mi">36</span><span class="p">).</span><span class="w"></span>
+<span class="o">;</span><span class="w"> </span><span class="nx">PIC16F1778</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="err">@</span><span class="mi">8</span><span class="nx">MHz</span><span class="w"> </span><span class="nx">Internal</span><span class="w"> </span><span class="nx">Oscillator</span><span class="p">.</span><span class="w"></span>
+<span class="o">;</span><span class="w"> </span><span class="o">-</span><span class="nx">preset_vec</span><span class="o">=</span><span class="mi">0000</span><span class="nx">h</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="nx">pcinit</span><span class="o">=</span><span class="mi">0005</span><span class="nx">h</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="nx">ptext1</span><span class="o">=</span><span class="mi">0800</span><span class="nx">h</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="nx">ptext2</span><span class="o">=</span><span class="mi">1000</span><span class="nx">h</span><span class="p">.</span><span class="w"></span>
+<span class="o">;</span><span class="w"> </span><span class="nx">Instruction</span><span class="w"> </span><span class="o">~</span><span class="mi">500</span><span class="nx">ns</span><span class="w"> </span><span class="err">@</span><span class="mi">8</span><span class="nx">MHz</span><span class="p">.</span><span class="w"></span>
+
+<span class="o">;</span><span class="w"> </span><span class="nx">MAIN</span><span class="w"> </span><span class="p">(</span><span class="nx">PAGE0</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">TEXT1</span><span class="w"> </span><span class="p">(</span><span class="nx">PAGE1</span><span class="p">).</span><span class="w"></span>
+<span class="o">;</span><span class="w"> </span><span class="nx">MAIN</span><span class="w"> </span><span class="p">(</span><span class="nx">PAGE0</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">TEXT2</span><span class="w"> </span><span class="p">(</span><span class="nx">PAGE2</span><span class="p">).</span><span class="w"></span>
+
+<span class="o">;</span><span class="w"> </span><span class="nx">MCU</span><span class="w"> </span><span class="nx">Definitions</span><span class="p">.</span><span class="w"></span>
+<span class="o">;</span><span class="w"> </span><span class="nx">BANKS</span><span class="p">.</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK0</span><span class="w">   </span><span class="mh">0x0</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK1</span><span class="w">   </span><span class="mh">0x1</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK2</span><span class="w">   </span><span class="mh">0x2</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK3</span><span class="w">   </span><span class="mh">0x3</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK4</span><span class="w">   </span><span class="mh">0x4</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK5</span><span class="w">   </span><span class="mh">0x5</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK6</span><span class="w">   </span><span class="mh">0x6</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK7</span><span class="w">   </span><span class="mh">0x7</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK8</span><span class="w">   </span><span class="mh">0x8</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK9</span><span class="w">   </span><span class="mh">0x9</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK10</span><span class="w">  </span><span class="mi">0</span><span class="nx">xA</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK11</span><span class="w">  </span><span class="mi">0</span><span class="nx">xB</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK12</span><span class="w">  </span><span class="mi">0</span><span class="nx">xC</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK13</span><span class="w">  </span><span class="mi">0</span><span class="nx">xD</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK14</span><span class="w">  </span><span class="mi">0</span><span class="nx">xE</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK15</span><span class="w">  </span><span class="mi">0</span><span class="nx">xF</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK16</span><span class="w">  </span><span class="mh">0x10</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK17</span><span class="w">  </span><span class="mh">0x11</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK18</span><span class="w">  </span><span class="mh">0x12</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK19</span><span class="w">  </span><span class="mh">0x13</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK20</span><span class="w">  </span><span class="mh">0x14</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK21</span><span class="w">  </span><span class="mh">0x15</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK22</span><span class="w">  </span><span class="mh">0x16</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK23</span><span class="w">  </span><span class="mh">0x17</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK24</span><span class="w">  </span><span class="mh">0x18</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK25</span><span class="w">  </span><span class="mh">0x19</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK26</span><span class="w">  </span><span class="mh">0x1</span><span class="nx">A</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK27</span><span class="w">  </span><span class="mh">0x1</span><span class="nx">B</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK28</span><span class="w">  </span><span class="mh">0x1</span><span class="nx">C</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK29</span><span class="w">  </span><span class="mh">0x1</span><span class="nx">D</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK30</span><span class="w">  </span><span class="mh">0x1</span><span class="nx">E</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">BANK31</span><span class="w">  </span><span class="mh">0x1</span><span class="nx">F</span><span class="w"></span>
+<span class="o">;</span><span class="w"> </span><span class="nx">SFR</span><span class="w"> </span><span class="nx">STATUS</span><span class="w"> </span><span class="nx">Bits</span><span class="p">.</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">C</span><span class="w">   </span><span class="mh">0x0</span><span class="w"></span>
+<span class="err">#</span><span class="nx">define</span><span class="w"> </span><span class="nx">Z</span><span class="w">   </span><span class="mh">0x2</span><span class="w"></span>
+
+<span class="o">;</span><span class="w"> </span><span class="nx">Reset</span><span class="w"> </span><span class="nx">Vector</span><span class="p">.</span><span class="w"></span>
+<span class="nx">PSECT</span><span class="w"> </span><span class="nx">reset_vec</span><span class="o">,</span><span class="kd">class</span><span class="o">=</span><span class="nx">CODE</span><span class="o">,</span><span class="nx">space</span><span class="o">=</span><span class="mi">0</span><span class="o">,</span><span class="nx">delta</span><span class="o">=</span><span class="mi">2</span><span class="w"></span>
+<span class="nx">resetVector</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="nx">GOTO</span><span class="w">    </span><span class="nx">main</span><span class="w"></span>
+
+<span class="o">;</span><span class="w"> </span><span class="nx">Main</span><span class="p">.</span><span class="w"></span>
+<span class="nx">PSECT</span><span class="w"> </span><span class="nx">cinit</span><span class="o">,</span><span class="kd">class</span><span class="o">=</span><span class="nx">CODE</span><span class="o">,</span><span class="nx">space</span><span class="o">=</span><span class="mi">0</span><span class="o">,</span><span class="nx">delta</span><span class="o">=</span><span class="mi">2</span><span class="w"></span>
+<span class="nx">main</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="o">;</span><span class="w"> </span><span class="nx">MCU</span><span class="w"> </span><span class="nx">Initialization</span><span class="p">.</span><span class="w"></span>
+<span class="w">    </span><span class="o">;</span><span class="w"> </span><span class="nx">Internal</span><span class="w"> </span><span class="nx">Oscillator</span><span class="w"> </span><span class="nx">Settings</span><span class="p">.</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLB</span><span class="w">   </span><span class="nx">BANK1</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLW</span><span class="w">   </span><span class="mi">0</span><span class="nx">b00000000</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVWF</span><span class="w">   </span><span class="nx">OSCTUNE</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLW</span><span class="w">   </span><span class="mh">0x70</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVWF</span><span class="w">   </span><span class="nx">OSCCON</span><span class="w"></span>
+<span class="w">    </span><span class="nx">BTFSS</span><span class="w">   </span><span class="nx">HFIOFR</span><span class="w"></span>
+<span class="w">    </span><span class="nx">BRA</span><span class="w">     </span><span class="nx">$</span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="o">;</span><span class="w"> </span><span class="nx">Ports</span><span class="w"> </span><span class="nx">Settings</span><span class="p">.</span><span class="w"></span>
+<span class="w">    </span><span class="o">;</span><span class="w"> </span><span class="nx">PORT</span><span class="w"> </span><span class="nx">Data</span><span class="w"> </span><span class="nx">Register</span><span class="p">.</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLB</span><span class="w">   </span><span class="nx">BANK0</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLW</span><span class="w">   </span><span class="mi">0</span><span class="nx">b00000000</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVWF</span><span class="w">   </span><span class="nx">PORTA</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLW</span><span class="w">   </span><span class="mi">0</span><span class="nx">b00000000</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVWF</span><span class="w">   </span><span class="nx">PORTB</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLW</span><span class="w">   </span><span class="mi">0</span><span class="nx">b00000000</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVWF</span><span class="w">   </span><span class="nx">PORTC</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLW</span><span class="w">   </span><span class="mi">0</span><span class="nx">b00000000</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVWF</span><span class="w">   </span><span class="nx">PORTE</span><span class="w"></span>
+<span class="w">    </span><span class="o">;</span><span class="w"> </span><span class="nx">TRIS</span><span class="w"> </span><span class="nx">Data</span><span class="w"> </span><span class="nx">Direction</span><span class="p">.</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLB</span><span class="w">   </span><span class="nx">BANK1</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLW</span><span class="w">   </span><span class="mi">0</span><span class="nx">b00000000</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVWF</span><span class="w">   </span><span class="nx">TRISA</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLW</span><span class="w">   </span><span class="mi">0</span><span class="nx">b00000000</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVWF</span><span class="w">   </span><span class="nx">TRISB</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLW</span><span class="w">   </span><span class="mi">0</span><span class="nx">b00000000</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVWF</span><span class="w">   </span><span class="nx">TRISC</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLW</span><span class="w">   </span><span class="mi">0</span><span class="nx">b00000000</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVWF</span><span class="w">   </span><span class="nx">TRISE</span><span class="w"></span>
+<span class="w">    </span><span class="o">;</span><span class="w"> </span><span class="nx">LATCH</span><span class="w"> </span><span class="nx">Outputs</span><span class="p">.</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLB</span><span class="w">   </span><span class="nx">BANK2</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLW</span><span class="w">   </span><span class="mi">0</span><span class="nx">b00000000</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVWF</span><span class="w">   </span><span class="nx">LATA</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLW</span><span class="w">   </span><span class="mi">0</span><span class="nx">b00000000</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVWF</span><span class="w">   </span><span class="nx">LATB</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLW</span><span class="w">   </span><span class="mi">0</span><span class="nx">b00000000</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVWF</span><span class="w">   </span><span class="nx">LATC</span><span class="w"></span>
+<span class="w">    </span><span class="o">;</span><span class="w"> </span><span class="nx">ANSEL</span><span class="w"> </span><span class="nx">Analog</span><span class="p">.</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLB</span><span class="w">   </span><span class="nx">BANK3</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLW</span><span class="w">   </span><span class="mi">0</span><span class="nx">b00000000</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVWF</span><span class="w">   </span><span class="nx">ANSELA</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLW</span><span class="w">   </span><span class="mi">0</span><span class="nx">b00000000</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVWF</span><span class="w">   </span><span class="nx">ANSELB</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLW</span><span class="w">   </span><span class="mi">0</span><span class="nx">b00000000</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVWF</span><span class="w">   </span><span class="nx">ANSELC</span><span class="w"></span>
+<span class="w">    </span><span class="o">;</span><span class="w"> </span><span class="nx">WPU</span><span class="w"> </span><span class="nx">Weak</span><span class="w"> </span><span class="nx">Pull</span><span class="o">-</span><span class="nx">up</span><span class="p">.</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLB</span><span class="w">   </span><span class="nx">BANK4</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLW</span><span class="w">   </span><span class="mi">0</span><span class="nx">b00000000</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVWF</span><span class="w">   </span><span class="nx">WPUA</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLW</span><span class="w">   </span><span class="mi">0</span><span class="nx">b00000000</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVWF</span><span class="w">   </span><span class="nx">WPUB</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLW</span><span class="w">   </span><span class="mi">0</span><span class="nx">b00000000</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVWF</span><span class="w">   </span><span class="nx">WPUC</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLW</span><span class="w">   </span><span class="mi">0</span><span class="nx">b00000000</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVWF</span><span class="w">   </span><span class="nx">WPUE</span><span class="w"></span>
+<span class="w">    </span><span class="o">;</span><span class="w"> </span><span class="nx">ODCON</span><span class="w"> </span><span class="nx">Open</span><span class="o">-</span><span class="nx">drain</span><span class="p">.</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLB</span><span class="w">   </span><span class="nx">BANK5</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLW</span><span class="w">   </span><span class="mi">0</span><span class="nx">b00000000</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVWF</span><span class="w">   </span><span class="nx">ODCONA</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLW</span><span class="w">   </span><span class="mi">0</span><span class="nx">b00000000</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVWF</span><span class="w">   </span><span class="nx">ODCONB</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLW</span><span class="w">   </span><span class="mi">0</span><span class="nx">b00000000</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVWF</span><span class="w">   </span><span class="nx">ODCONC</span><span class="w"></span>
+<span class="w">    </span><span class="o">;</span><span class="w"> </span><span class="nx">SRLCON</span><span class="w"> </span><span class="nx">Slew</span><span class="w"> </span><span class="nx">Rate</span><span class="p">.</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLB</span><span class="w">   </span><span class="nx">BANK6</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLW</span><span class="w">   </span><span class="mi">0</span><span class="nx">b11111111</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVWF</span><span class="w">   </span><span class="nx">SLRCONA</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLW</span><span class="w">   </span><span class="mi">0</span><span class="nx">b11111111</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVWF</span><span class="w">   </span><span class="nx">SLRCONB</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLW</span><span class="w">   </span><span class="mi">0</span><span class="nx">b11111111</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVWF</span><span class="w">   </span><span class="nx">SLRCONC</span><span class="w"></span>
+<span class="w">    </span><span class="o">;</span><span class="w"> </span><span class="nx">INLVL</span><span class="w"> </span><span class="nx">Input</span><span class="w"> </span><span class="nx">Level</span><span class="p">.</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLB</span><span class="w">   </span><span class="nx">BANK7</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLW</span><span class="w">   </span><span class="mi">0</span><span class="nx">b00000000</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVWF</span><span class="w">   </span><span class="nx">INLVLA</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLW</span><span class="w">   </span><span class="mi">0</span><span class="nx">b00000000</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVWF</span><span class="w">   </span><span class="nx">INLVLB</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLW</span><span class="w">   </span><span class="mi">0</span><span class="nx">b00000000</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVWF</span><span class="w">   </span><span class="nx">INLVLC</span><span class="w"></span>
+<span class="w">    </span><span class="o">;</span><span class="w"> </span><span class="nx">HIDRVB</span><span class="w"> </span><span class="nx">High</span><span class="w"> </span><span class="nx">Drive</span><span class="p">.</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLB</span><span class="w">   </span><span class="nx">BANK8</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLW</span><span class="w">   </span><span class="mi">0</span><span class="nx">b00000000</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVWF</span><span class="w">   </span><span class="nx">HIDRVB</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">MOVLB</span><span class="w">   </span><span class="nx">BANK2</span><span class="w"></span>
+<span class="nx">loop</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLP</span><span class="w">   </span><span class="mh">0x8</span><span class="w"></span>
+<span class="w">    </span><span class="nx">CALL</span><span class="w">    </span><span class="nx">_page1</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x07</span><span class="nx">FF</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">BRA</span><span class="w">     </span><span class="nx">loop</span><span class="w"></span>
+
+<span class="o">;</span><span class="w"> </span><span class="nx">Functions</span><span class="p">.</span><span class="w"></span>
+<span class="o">;</span><span class="w"> </span><span class="nx">Page1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">0800</span><span class="nx">h</span><span class="o">-</span><span class="mi">07</span><span class="nx">FFh</span><span class="p">.</span><span class="w"></span>
+<span class="nx">PSECT</span><span class="w"> </span><span class="nx">text1</span><span class="o">,</span><span class="kd">class</span><span class="o">=</span><span class="nx">CODE</span><span class="o">,</span><span class="nx">space</span><span class="o">=</span><span class="mi">0</span><span class="o">,</span><span class="nx">delta</span><span class="o">=</span><span class="mi">2</span><span class="w"></span>
+<span class="nx">_page1</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="nx">BSF</span><span class="w">     </span><span class="nx">LATA</span><span class="o">,</span><span class="w"> </span><span class="mi">0</span><span class="nx">X0</span><span class="w"></span>
+<span class="w">    </span><span class="nx">MOVLP</span><span class="w">   </span><span class="mh">0x10</span><span class="w"></span>
+<span class="w">    </span><span class="nx">CALL</span><span class="w">    </span><span class="nx">_page2</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x07</span><span class="nx">FF</span><span class="w"></span>
 <span class="w">    </span><span class="nx">RETURN</span><span class="w"></span>
 
 <span class="o">;</span><span class="w"> </span><span class="nx">Page2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1000</span><span class="nx">h</span><span class="o">-</span><span class="mi">17</span><span class="nx">FFh</span><span class="p">.</span><span class="w"></span>
